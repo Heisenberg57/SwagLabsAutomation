@@ -23,3 +23,6 @@ Create SwagLabsLoginTest.java under tests/ folder.
 Use locators for username, password, and login button.
 
 ✅ Confirm it navigates to Products page.
+
+Day 3 - Add-to-Cart Functionality
+--------------------------------
