@@ -35,3 +35,24 @@ Continue in same test (or create AddToCartTest.java).
 Locate first 2 product “Add to cart” buttons and click:
 
 ✅ Should print “Cart count: 2”.
+
+Day 4 - Dynamic Locators + Assertions
+--------------------------------------
+Goal: Strengthen locator logic and validation.
+
+Tasks:
+
+1. Replace static locators with CSS and XPath versions for practice.
+2. Use Assertions (TestNG or simple if checks for now):
+3. Print all product names on the page:
+
+Day 5 (Friday, 1 hr) — Clean Up + Mini Framework
+-----------------------------------------------
+
+Goal: Make your test professional and reusable.
+
+Tasks:
+1.Create a small structure:
+2.Move driver setup & teardown into BaseTest:
+3.Make SwagLabsTest extend BaseTest and call setUp() & tearDown() around your test logic.
+
