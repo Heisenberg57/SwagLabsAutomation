@@ -1,73 +1,58 @@
+import base.BaseTest;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-public class AddToCart {
+public class AddToCart extends BaseTest {
     public static void main(String[] args) throws InterruptedException {
-        WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
+       AddToCart atc = new AddToCart();
+       atc.setUp();
 
-        // Disable all password / credential prompts
-        Map<String, Object> prefs = new HashMap<>();
-        prefs.put("credentials_enable_service", false);
-        prefs.put("profile.password_manager_enabled", false);
-        prefs.put("profile.default_content_setting_values.notifications", 2);
-        prefs.put("profile.default_content_setting_values.popups", 0);
-        options.setExperimentalOption("prefs", prefs);
+       try{
+           atc.basedriver.get("https://www.saucedemo.com");
+           atc.basedriver.findElement(By.id("user-name")).sendKeys("standard_user");
+           atc.basedriver.findElement(By.id("password")).sendKeys("secret_sauce");
 
-        // Hardcore disable everything Chrome might spawn
-        options.addArguments("--incognito");
-        options.addArguments("--disable-save-password-bubble");
-        options.addArguments("--disable-features=AutofillServerCommunication,PasswordManagerOnboarding,PasswordImport,PasswordChange,AutofillEnableAccountWalletStorage");
-        options.addArguments("--disable-extensions");
-        options.addArguments("--disable-popup-blocking");
-        options.addArguments("--disable-notifications");
-        options.addArguments("--disable-infobars");
-        options.addArguments("--disable-blink-features=AutomationControlled");
-        options.addArguments("--start-maximized");
+           atc.basedriver.findElement(By.id("login-button")).click();
+
+           Thread.sleep(3000);
+
+//        atc.basedriver.findElement(By.id("add-to-cart-sauce-labs-backpack")).click();
+//        atc.basedriver.findElement(By.id("add-to-cart-sauce-labs-bike-light")).click();
+
+           atc.basedriver.findElement(By.cssSelector("[data-test='add-to-cart-sauce-labs-backpack']")).click();
+           atc.basedriver.findElement(By.xpath("//button[contains(@id,'bike-light')]")).click();
+
+           String cartCount = atc.basedriver.findElement(By.className("shopping_cart_badge")).getText();
+           //System.out.println("Cart Count : "+cartCount);
+
+           if(cartCount.equals("2")){
+               System.out.println("Test Passed ");
+           }
+           else{
+               System.out.println("Test Failed ");
+           }
+
+           List<WebElement> products = atc.basedriver.findElements(By.className("inventory_item_name"));
+
+           for(WebElement p : products ){
+               System.out.println(p.getText());
+           }
+
+       }
+       catch (Exception e){
+           e.printStackTrace();
+       }
+       finally {
+           atc.basedriver.quit();
+       }
 
 
-        WebDriver driver_for_atc = new ChromeDriver(options);
 
 
 
-        driver_for_atc.get("https://www.saucedemo.com");
-        driver_for_atc.findElement(By.id("user-name")).sendKeys("standard_user");
-        driver_for_atc.findElement(By.id("password")).sendKeys("secret_sauce");
 
-        driver_for_atc.findElement(By.id("login-button")).click();
-
-        Thread.sleep(3000);
-
-//        driver_for_atc.findElement(By.id("add-to-cart-sauce-labs-backpack")).click();
-//        driver_for_atc.findElement(By.id("add-to-cart-sauce-labs-bike-light")).click();
-
-        driver_for_atc.findElement(By.cssSelector("[data-test='add-to-cart-sauce-labs-backpack']")).click();
-        driver_for_atc.findElement(By.xpath("//button[contains(@id,'bike-light')]")).click();
-
-        String cartCount = driver_for_atc.findElement(By.className("shopping_cart_badge")).getText();
-        //System.out.println("Cart Count : "+cartCount);
-
-        if(cartCount.equals("2")){
-            System.out.println("Test Passed ");
-        }
-        else{
-            System.out.println("Test Failed ");
-        }
-
-        List<WebElement> products = driver_for_atc.findElements(By.className("inventory_item_name"));
-
-        for(WebElement p : products ){
-            System.out.println(p.getText());
-        }
-
-        driver_for_atc.quit();
     }
 }
