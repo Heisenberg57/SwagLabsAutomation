@@ -44,8 +44,11 @@ public class AddToCart {
 
         Thread.sleep(3000);
 
-        driver_for_atc.findElement(By.id("add-to-cart-sauce-labs-backpack")).click();
-        driver_for_atc.findElement(By.id("add-to-cart-sauce-labs-bike-light")).click();
+//        driver_for_atc.findElement(By.id("add-to-cart-sauce-labs-backpack")).click();
+//        driver_for_atc.findElement(By.id("add-to-cart-sauce-labs-bike-light")).click();
+
+        driver_for_atc.findElement(By.cssSelector("[data-test='add-to-cart-sauce-labs-backpack']")).click();
+        driver_for_atc.findElement(By.xpath("//button[contains(@id,'bike-light')]")).click();
 
         String cartCount = driver_for_atc.findElement(By.className("shopping_cart_badge")).getText();
         System.out.println("Cart Count : "+cartCount);
