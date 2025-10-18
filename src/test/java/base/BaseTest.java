@@ -37,6 +37,11 @@ public class BaseTest {
 
     }
 
+    public WebDriver getDriver(){
+        return  basedriver;
+
+    }
+
     public void tearDown(){
         basedriver.quit();
     }
