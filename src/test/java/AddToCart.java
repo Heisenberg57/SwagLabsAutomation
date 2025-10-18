@@ -51,7 +51,14 @@ public class AddToCart {
         driver_for_atc.findElement(By.xpath("//button[contains(@id,'bike-light')]")).click();
 
         String cartCount = driver_for_atc.findElement(By.className("shopping_cart_badge")).getText();
-        System.out.println("Cart Count : "+cartCount);
+        //System.out.println("Cart Count : "+cartCount);
+
+        if(cartCount.equals("2")){
+            System.out.println("Test Passed ");
+        }
+        else{
+            System.out.println("Test Failed ");
+        }
 
         driver_for_atc.quit();
     }
