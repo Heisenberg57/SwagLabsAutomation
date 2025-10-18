@@ -23,3 +23,15 @@ Create SwagLabsLoginTest.java under tests/ folder.
 Use locators for username, password, and login button.
 
 ✅ Confirm it navigates to Products page.
+
+Day 3 - Add-to-Cart Functionality
+--------------------------------
+Goal: Interact with elements on the Products page.
+
+Tasks:
+
+Continue in same test (or create AddToCartTest.java).
+
+Locate first 2 product “Add to cart” buttons and click:
+
+✅ Should print “Cart count: 2”.
