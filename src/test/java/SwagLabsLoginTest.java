@@ -1,22 +1,57 @@
+import base.BaseTest;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class SwagLabsLoginTest {
+
+import java.time.Duration;
+
+public class SwagLabsLoginTest extends BaseTest {
     public static void main(String[] args) throws InterruptedException {
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver_for_login = new ChromeDriver();
-        driver_for_login.get("https://www.saucedemo.com");
-        driver_for_login.findElement(By.id("user-name")).sendKeys("standard_user");
-        driver_for_login.findElement(By.id("password")).sendKeys("secret_sauce");
+        SwagLabsLoginTest loginTest = new SwagLabsLoginTest();
+        loginTest.setUp();
 
-        driver_for_login.findElement(By.id("login-button")).click();
+        try {
 
-        Thread.sleep(3000);
+            loginTest.basedriver.get("https://www.saucedemo.com");
+            loginTest.basedriver.findElement(By.id("user-name")).sendKeys("standard_user");
+            loginTest.basedriver.findElement(By.id("password")).sendKeys("secret_sauce");
 
-        System.out.println("The Title after login is "+driver_for_login.getTitle());
-        driver_for_login.quit();
+            loginTest.basedriver.findElement(By.id("login-button")).click();
+
+            WebDriverWait wait = new WebDriverWait(loginTest.basedriver, Duration.ofSeconds(10));
+
+            WebElement button = wait.until(ExpectedConditions.elementToBeClickable(By.id("react-burger-menu-btn")));
+
+            button.click();
+
+            System.out.println("The Title after login is " + loginTest.basedriver.getTitle());
+
+            WebDriverWait wait2 = new WebDriverWait(loginTest.basedriver, Duration.ofSeconds(10));
+
+            WebElement loginbutton = wait.until(ExpectedConditions.elementToBeClickable(By.id("logout_sidebar_link")));
+
+            loginbutton.click();
+
+            if(loginTest.basedriver.findElement(By.id("login-button")).isDisplayed()){
+                System.out.println("Log Out succesfull");
+            }
+            else {
+                System.out.println("Log out fail");
+            }
+
+
+
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            loginTest.basedriver.quit();
+        }
+
 
 
     }
