@@ -46,7 +46,7 @@ public class AddToCart extends BaseTest {
            e.printStackTrace();
        }
        finally {
-           atc.basedriver.quit();
+           atc.tearDown();
        }
 
 

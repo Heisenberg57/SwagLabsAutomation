@@ -64,7 +64,7 @@ public class CheckOutFlow extends BaseTest {
         catch (Exception e){
             e.printStackTrace();
         } finally {
-            driver.quit();
+            check.tearDown();
         }
     }
 }
