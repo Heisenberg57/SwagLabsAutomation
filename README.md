@@ -56,3 +56,5 @@ Tasks:
 2.Move driver setup & teardown into BaseTest:
 3.Make SwagLabsTest extend BaseTest and call setUp() & tearDown() around your test logic.
 
+Added additional class for logout assertions
+
