@@ -6,6 +6,7 @@ import  io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -64,15 +65,17 @@ public class OpenBrowserTest extends BaseTest {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("shopping_cart_link")));
         boolean isLogin = basedriver.findElement(By.className("shopping_cart_link")).isDisplayed();
 
-        if(isLogin){
-            System.out.println("Login Succesfull");
-        }
-        else {
-            System.out.println("login failed");
-        }
+        Assert.assertTrue(isLogin,"Login is succesfull");
+        System.out.println("Test Passed ");
 
 
     }
+
+//    @Test
+//    public void verifyInvalidLogin(){
+//
+//    }
+
     @AfterTest
     public void tearDown(){
         basedriver.quit();
