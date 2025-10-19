@@ -71,10 +71,23 @@ public class OpenBrowserTest extends BaseTest {
 
     }
 
-//    @Test
-//    public void verifyInvalidLogin(){
-//
-//    }
+    @Test
+    public void verifyInvalidLogin(){
+        //open website
+        basedriver.get("https://www.saucedemo.com");
+
+        //enter credentials and login
+        basedriver.findElement(By.id("user-name")).sendKeys("wrong_user");
+        basedriver.findElement(By.id("password")).sendKeys("secret_sauce");
+        basedriver.findElement(By.id("login-button")).click();
+
+        boolean errorDisplayed = basedriver.findElement(By.className("error-button")).isDisplayed();
+
+        Assert.assertTrue(errorDisplayed,"Login failed, Invalid Credentials bruv");
+
+        System.out.println("Man login is failing bruv, You gotta put em right creds");
+
+    }
 
     @AfterTest
     public void tearDown(){
