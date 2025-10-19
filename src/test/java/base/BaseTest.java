@@ -1,9 +1,15 @@
 package base;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import  io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.annotations.Test; // For the @Test annotation, marking methods as test methods.
+import org.testng.Assert; // For various assertion methods like assertEquals, assertTrue, etc.
 
+import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -39,6 +45,29 @@ public class BaseTest {
 
     public WebDriver getDriver(){
         return  basedriver;
+
+    }
+
+    public void loginTest(){
+        //open website
+        basedriver.get("https://www.saucedemo.com");
+
+        //enter credentials and login
+        basedriver.findElement(By.id("user-name")).sendKeys("standard_user");
+        basedriver.findElement(By.id("password")).sendKeys("secret_sauce");
+        basedriver.findElement(By.id("login-button")).click();
+
+        WebDriverWait wait = new WebDriverWait(basedriver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("shopping_cart_link")));
+        boolean isLogin = basedriver.findElement(By.className("shopping_cart_link")).isDisplayed();
+
+        if(isLogin){
+            System.out.println("Login Succesfull");
+        }
+        else {
+            System.out.println("login failed");
+        }
+
 
     }
 
