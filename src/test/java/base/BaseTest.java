@@ -6,6 +6,8 @@ import  io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test; // For the @Test annotation, marking methods as test methods.
 import org.testng.Assert; // For various assertion methods like assertEquals, assertTrue, etc.
 
@@ -16,7 +18,8 @@ import java.util.Map;
 public class BaseTest {
     protected WebDriver basedriver;
 
-    public void setUp(){
+    @BeforeMethod
+    public void setUp() {
         ChromeOptions options = new ChromeOptions();
 
         // Disable all password / credential prompts
@@ -40,38 +43,21 @@ public class BaseTest {
 
         basedriver = new ChromeDriver(options);
         basedriver.manage().window().maximize();
+        basedriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        System.out.println("Browser launched succesfully");
 
     }
 
-    public WebDriver getDriver(){
-        return  basedriver;
+    public WebDriver getDriver() {
+        return basedriver;
 
     }
 
-    public void loginTest(){
-        //open website
-        basedriver.get("https://www.saucedemo.com");
-
-        //enter credentials and login
-        basedriver.findElement(By.id("user-name")).sendKeys("standard_user");
-        basedriver.findElement(By.id("password")).sendKeys("secret_sauce");
-        basedriver.findElement(By.id("login-button")).click();
-
-        WebDriverWait wait = new WebDriverWait(basedriver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("shopping_cart_link")));
-        boolean isLogin = basedriver.findElement(By.className("shopping_cart_link")).isDisplayed();
-
-        if(isLogin){
-            System.out.println("Login Succesfull");
+    @AfterMethod
+    public void tearDown() {
+        if (basedriver != null) {
+            basedriver.quit();
+            System.out.println("You quit da browser succesfully");
         }
-        else {
-            System.out.println("login failed");
-        }
-
-
-    }
-
-    public void tearDown(){
-        basedriver.quit();
     }
 }
