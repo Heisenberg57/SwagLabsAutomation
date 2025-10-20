@@ -46,7 +46,7 @@ Tasks:
 2. Use Assertions (TestNG or simple if checks for now):
 3. Print all product names on the page:
 
-Day 5 (Friday, 1 hr) — Clean Up + Mini Framework
+Day 5 — Clean Up + Mini Framework
 -----------------------------------------------
 
 Goal: Make your test professional and reusable.
@@ -57,4 +57,18 @@ Tasks:
 3.Make SwagLabsTest extend BaseTest and call setUp() & tearDown() around your test logic.
 
 Added additional class for logout assertions
+
+Day 6 - Topic: TestNG Basics + Test Lifecycle
+---------------------------------------------
+Objectives:
+
+Install TestNG plugin in IntelliJ (File > Settings > Plugins > TestNG).
+
+Learn key annotations:
+@BeforeMethod, @AfterMethod, @Test, @BeforeClass, @AfterClass
+
+Convert one of your existing tests (SwagLabsLoginTest or CheckOutFlow) from main() → TestNG.
+
+✅ Deliverable: A working TestNG class that runs via IntelliJ TestNG runner (green play icon).
+
 
