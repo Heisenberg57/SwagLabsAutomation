@@ -87,4 +87,8 @@ InventoryPage.java
 
 CheckoutPage.java
 
+Each page: locators + methods (no waits or assertions inside test).
+
+✅ Deliverable: Pages separated from tests; test file just calls page methods.
+
 
