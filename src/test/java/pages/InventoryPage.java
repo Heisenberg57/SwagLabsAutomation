@@ -36,6 +36,15 @@ public class InventoryPage {
         }
     }
 
+    // Add all products to cart
+    public void addAllProductsToCart() {
+        List<WebElement> buttons = driver.findElements(addToCartButtons);
+        for (WebElement btn : buttons) {
+            btn.click();
+        }
+    }
+
+//Get all items number in cart
     public int getCartItemCount() {
         List<WebElement> badge = driver.findElements(cartBadge);
         if (badge.size() > 0) {
