@@ -71,4 +71,20 @@ Convert one of your existing tests (SwagLabsLoginTest or CheckOutFlow) from main
 
 ✅ Deliverable: A working TestNG class that runs via IntelliJ TestNG runner (green play icon).
 
+Day 7 - Topic: Page Object Model (POM) – Structure and Refactoring
+-----------------------------------------------------------------
+Create project structure:
+src/test/java/
+    base/
+    pages/
+    tests/
+    utils/
+Move Selenium logic into Page classes:
+
+LoginPage.java
+
+InventoryPage.java
+
+CheckoutPage.java
+
 
