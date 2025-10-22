@@ -16,7 +16,7 @@ public class InventoryTest extends BaseTest {
         it = new InventoryPage(basedriver);
         basedriver.get("https://www.saucedemo.com/");
         LoginPage lg = new LoginPage(basedriver);
-        lg.login("standard_user","secret_sauce");
+            lg.login("standard_user","secret_sauce");
     }
 
     @Test

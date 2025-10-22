@@ -55,7 +55,12 @@ public class InventoryPage {
 
 
 
-    // Add all products to cart
+
+    // Go to cart page
+    public void goToCart() {
+        driver.findElement(cartIcon).click();
+    }
+
 
 
 }
