@@ -1,6 +1,7 @@
 package tests;
 
 import base.BaseTest;
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -33,6 +34,20 @@ public class CheckoutTest extends BaseTest {
 
         // Step 3: Go to cart and click checkout
         inventoryPage.goToCart();
+        basedriver.findElement(By.id("checkout")).click();
+
+        // Step 4: Fill checkout info
+        checkoutPage.fillCheckoutInformation("Suyog", "Test", "401301");
+        checkoutPage.clickContinue();
+
+        // Step 5: Finish checkout
+        checkoutPage.clickFinish();
+
+        // Step 6: Verify success message
+        String message = checkoutPage.getSuccessMessage();
+        Assert.assertEquals(message, "Thank you for your order!");
+
+
 
 
     }
