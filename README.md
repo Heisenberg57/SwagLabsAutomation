@@ -81,9 +81,9 @@ src/test/java/
     utils/
 Move Selenium logic into Page classes:
 
-LoginPage.java
+LoginPage.java -  This contains variables and methods for username password and login.
 
-InventoryPage.java
+InventoryPage.java  
 
 CheckoutPage.java
 
