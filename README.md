@@ -83,7 +83,8 @@ Move Selenium logic into Page classes:
 
 LoginPage.java -  This contains variables and methods for username password and login.
 
-InventoryPage.java  
+InventoryPage.java  - This contains variables and methods for product titles, add to cart buttons of each product, basket page, adding single product to cart, adding all products in cart
+, Getting the cart count , check how many products are added in the cart , redirect to basket / clicking on basket
 
 CheckoutPage.java
 
