@@ -81,15 +81,15 @@ src/test/java/
     utils/
 Move Selenium logic into Page classes:
 
-LoginPage.java -  This contains variables and methods for username password and login.
+LoginPage.java -  This class contains variables and methods for username password and login.
 
-InventoryPage.java  - This contains variables and methods for product titles, add to cart buttons of each product, basket page, adding single product to cart, adding all products in cart
-, Getting the cart count , check how many products are added in the cart , redirect to basket / clicking on basket
+InventoryPage.java  - This class contains variables and methods for product titles, add to cart buttons of each product, basket page, adding single product to cart, adding all products in cart, Getting the cart count , check how many products are added in the cart , redirect to basket / clicking on basket
 
-CheckoutPage.java - This contains variables and methods for filling in customer details like name, email, number and address, click on checkout , confirm these details and finalize the order
+CheckoutPage.java - This class contains variables and methods for filling in customer details like name, email, number and address, click on checkout , confirm these details and finalize the order
 
 Each page: locators + methods (no waits or assertions inside test).
 
 ✅ Deliverable: Pages separated from tests; test file just calls page methods.
+
 
 
