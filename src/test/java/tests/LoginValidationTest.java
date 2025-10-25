@@ -31,4 +31,26 @@ public class LoginValidationTest extends BaseTest {
         System.out.println("✅ Valid Login Test Passed!");
 
     }
+
+    @Test(priority = 2)
+
+    public void invalidLoginTest(){
+        basedriver.get("https://www.saucedemo.com");
+
+        basedriver.findElement(By.id("user-name")).sendKeys("wrong_user");
+        basedriver.findElement(By.id("password")).sendKeys("wrong_pass");
+        basedriver.findElement(By.id("login-button")).click();
+
+        WebDriverWait wait = new WebDriverWait(basedriver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[data-test='error']")));
+
+        String errorText = basedriver.findElement(By.cssSelector("[data-test='error']")).getText();
+        System.out.println("Error Message Displayed: " + errorText);
+
+        // Assertion for validation
+        Assert.assertTrue(errorText.contains("Username and password do not match"),
+                " Unexpected error message or login did not fail as expected.");
+
+        System.out.println("✅ Invalid Login Test Passed!");
+    }
 }
