@@ -91,5 +91,21 @@ Each page: locators + methods (no waits or assertions inside test).
 
 ✅ Deliverable: Pages separated from tests; test file just calls page methods.
 
+Day 8 Assertions + Test Validation
+---------
+Objectives:
+
+Use org.testng.Assert for verification:
+
+Assert.assertEquals(actualTitle, "Swag Labs");
+Assert.assertTrue(driver.getCurrentUrl().contains("inventory"));
+
+
+Add both positive and negative login test cases.
+
+Understand difference between hard and soft assertions.
+
+ Deliverable: LoginTest.java and LogoutTest.java both using assertions instead of if
+
 
 
