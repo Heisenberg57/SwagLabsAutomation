@@ -45,6 +45,8 @@ public class BaseTest {
         basedriver.manage().window().maximize();
         basedriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         System.out.println("Browser launched succesfully");
+        System.setProperty("testng.reporter.output", "test-output");
+
 
     }
 
