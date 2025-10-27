@@ -111,5 +111,7 @@ Understand difference between hard and soft assertions.
 
  Add test NG html reports
 
+ Add method to check whether logout is succesful
+
 
 
