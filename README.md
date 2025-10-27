@@ -109,5 +109,7 @@ Understand difference between hard and soft assertions.
 
  Add soft asserts if initial tests fail and yet entire test suite will run
 
+ Add test NG html reports
+
 
 
