@@ -105,7 +105,13 @@ Add both positive and negative login test cases.
 
 Understand difference between hard and soft assertions.
 
- Deliverable: LoginTest.java and LogoutTest.java both using assertions instead of if
+ Deliverable: LoginTest.java and LogoutTest.java both using assertions instead of if else statements
+
+ Add soft asserts if initial tests fail and yet entire test suite will run
+
+ Add test NG html reports
+
+ Add method to check whether logout is succesful
 
 
 
