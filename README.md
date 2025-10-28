@@ -113,5 +113,12 @@ Understand difference between hard and soft assertions.
 
  Add method to check whether logout is succesful
 
+ Day 9 - configs and utils
+ ------------------------
+ Objectives: Create config.properties: 
+ baseUrl=https://www.saucedemo.com/ 
+ username=standard_user 
+ password=secret_sauce
+
 
 
