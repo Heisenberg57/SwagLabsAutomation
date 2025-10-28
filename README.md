@@ -120,5 +120,12 @@ Understand difference between hard and soft assertions.
  username=standard_user 
  password=secret_sauce
 
+ Add a small ConfigReader 
+ utility: Properties prop = new Properties(); 
+ prop.load(new FileInputStream("config.properties")); 
+ Modify BaseTest → read config values dynamically. 
+ 
+ ✅ Deliverable: Framework uses config file (no hard-coded data).
+
 
 
