@@ -1,10 +1,13 @@
 package tests;
 
 import base.BaseTest;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.LoginPage;
+import utils.ConfigReader;
 
 public class LoginPageTest extends BaseTest {
 
@@ -14,6 +17,19 @@ public class LoginPageTest extends BaseTest {
     public void setLopa(){
         lopa = new LoginPage(basedriver);
         basedriver.get("https://www.saucedemo.com/");
+    }
+
+    @Test
+    public void verifyLogin() {
+        String username = ConfigReader.getProperty("username");
+        String password = ConfigReader.getProperty("password");
+
+        basedriver.findElement(By.id("user-name")).sendKeys(username);
+        basedriver.findElement(By.id("password")).sendKeys(password);
+        basedriver.findElement(By.id("login-button")).click();
+
+        Assert.assertTrue(basedriver.getCurrentUrl().contains("inventory"), "Login failed");
+        System.out.println("✅ Login Successful");
     }
 
     @Test

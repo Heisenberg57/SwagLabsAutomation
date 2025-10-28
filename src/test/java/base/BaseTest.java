@@ -4,12 +4,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import  io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test; // For the @Test annotation, marking methods as test methods.
 import org.testng.Assert; // For various assertion methods like assertEquals, assertTrue, etc.
+import utils.ConfigReader;
 
 import java.time.Duration;
 import java.util.HashMap;
@@ -46,6 +49,27 @@ public class BaseTest {
         basedriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         System.out.println("Browser launched succesfully");
         System.setProperty("testng.reporter.output", "test-output");
+        String browser = ConfigReader.getProperty("browser");
+        String baseUrl = ConfigReader.getProperty("baseUrl");
+
+        if (browser.equalsIgnoreCase("chrome")) {
+            WebDriverManager.chromedriver().setup();
+            basedriver = new ChromeDriver();
+        } else if (browser.equalsIgnoreCase("firefox")) {
+            WebDriverManager.firefoxdriver().setup();
+            basedriver = new FirefoxDriver();
+        } else if (browser.equalsIgnoreCase("edge")) {
+            WebDriverManager.edgedriver().setup();
+            basedriver = new EdgeDriver();
+        } else {
+            throw new RuntimeException("❌ Browser not supported: " + browser);
+        }
+
+        basedriver.manage().window().maximize();
+        basedriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        basedriver.get(baseUrl);
+
+        System.out.println("🌐 Browser launched at " + baseUrl);
 
 
     }
