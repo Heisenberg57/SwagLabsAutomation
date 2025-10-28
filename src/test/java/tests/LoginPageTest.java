@@ -32,16 +32,16 @@ public class LoginPageTest extends BaseTest {
         System.out.println("✅ Login Successful");
     }
 
-    @Test
-    public void testValidLogin(){
-        lopa.login("standard_user","secret_sauce");
-
-        String expectedUrl = "https://www.saucedemo.com/inventory.html";
-        String actualUrl = basedriver.getCurrentUrl();
-
-        assert actualUrl.equals(expectedUrl) :"Login failed! Expected: " + expectedUrl + " but got: " + actualUrl;
-
-
-    }
+//    @Test
+//    public void testValidLogin(){
+//        lopa.login("standard_user","secret_sauce");
+//
+//        String expectedUrl = "https://www.saucedemo.com/inventory.html";
+//        String actualUrl = basedriver.getCurrentUrl();
+//
+//        assert actualUrl.equals(expectedUrl) :"Login failed! Expected: " + expectedUrl + " but got: " + actualUrl;
+//
+//
+//    }
 
 }
