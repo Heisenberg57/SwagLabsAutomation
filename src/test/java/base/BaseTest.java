@@ -23,38 +23,59 @@ public class BaseTest {
 
     @BeforeMethod
     public void setUp() {
-        ChromeOptions options = new ChromeOptions();
+//        ChromeOptions options = new ChromeOptions();
+//
+//        // Disable all password / credential prompts
+//        Map<String, Object> prefs = new HashMap<>();
+//        prefs.put("credentials_enable_service", false);
+//        prefs.put("profile.password_manager_enabled", false);
+//        prefs.put("profile.default_content_setting_values.notifications", 2);
+//        prefs.put("profile.default_content_setting_values.popups", 0);
+//        options.setExperimentalOption("prefs", prefs);
+//
+//        // Hardcore disable everything Chrome might spawn
+//        options.addArguments("--incognito");
+//        options.addArguments("--disable-save-password-bubble");
+//        options.addArguments("--disable-features=AutofillServerCommunication,PasswordManagerOnboarding,PasswordImport,PasswordChange,AutofillEnableAccountWalletStorage");
+//        options.addArguments("--disable-extensions");
+//        options.addArguments("--disable-popup-blocking");
+//        options.addArguments("--disable-notifications");
+//        options.addArguments("--disable-infobars");
+//        options.addArguments("--disable-blink-features=AutomationControlled");
+//        options.addArguments("--start-maximized");
 
-        // Disable all password / credential prompts
-        Map<String, Object> prefs = new HashMap<>();
-        prefs.put("credentials_enable_service", false);
-        prefs.put("profile.password_manager_enabled", false);
-        prefs.put("profile.default_content_setting_values.notifications", 2);
-        prefs.put("profile.default_content_setting_values.popups", 0);
-        options.setExperimentalOption("prefs", prefs);
-
-        // Hardcore disable everything Chrome might spawn
-        options.addArguments("--incognito");
-        options.addArguments("--disable-save-password-bubble");
-        options.addArguments("--disable-features=AutofillServerCommunication,PasswordManagerOnboarding,PasswordImport,PasswordChange,AutofillEnableAccountWalletStorage");
-        options.addArguments("--disable-extensions");
-        options.addArguments("--disable-popup-blocking");
-        options.addArguments("--disable-notifications");
-        options.addArguments("--disable-infobars");
-        options.addArguments("--disable-blink-features=AutomationControlled");
-        options.addArguments("--start-maximized");
-
-        basedriver = new ChromeDriver(options);
-        basedriver.manage().window().maximize();
-        basedriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        System.out.println("Browser launched succesfully");
-        System.setProperty("testng.reporter.output", "test-output");
-        String browser = ConfigReader.getProperty("browser");
-        String baseUrl = ConfigReader.getProperty("baseUrl");
+//        basedriver = new ChromeDriver(options);
+//        basedriver.manage().window().maximize();
+//        basedriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+//        System.out.println("Browser launched succesfully");
+//        System.setProperty("testng.reporter.output", "test-output");
+          String browser = ConfigReader.getProperty("browser");
+          String baseUrl = ConfigReader.getProperty("baseUrl");
 
         if (browser.equalsIgnoreCase("chrome")) {
             WebDriverManager.chromedriver().setup();
-            basedriver = new ChromeDriver();
+            ChromeOptions options = new ChromeOptions();
+
+            // Disable all password / credential prompts
+            Map<String, Object> prefs = new HashMap<>();
+            prefs.put("credentials_enable_service", false);
+            prefs.put("profile.password_manager_enabled", false);
+            prefs.put("profile.default_content_setting_values.notifications", 2);
+            prefs.put("profile.default_content_setting_values.popups", 0);
+            options.setExperimentalOption("prefs", prefs);
+
+            // Hardcore disable everything Chrome might spawn
+            options.addArguments("--incognito");
+            options.addArguments("--disable-save-password-bubble");
+            options.addArguments("--disable-features=AutofillServerCommunication,PasswordManagerOnboarding,PasswordImport,PasswordChange,AutofillEnableAccountWalletStorage");
+            options.addArguments("--disable-extensions");
+            options.addArguments("--disable-popup-blocking");
+            options.addArguments("--disable-notifications");
+            options.addArguments("--disable-infobars");
+            options.addArguments("--disable-blink-features=AutomationControlled");
+            options.addArguments("--start-maximized");
+            basedriver = new ChromeDriver(options);
+
         } else if (browser.equalsIgnoreCase("firefox")) {
             WebDriverManager.firefoxdriver().setup();
             basedriver = new FirefoxDriver();
