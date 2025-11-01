@@ -27,5 +27,12 @@ public class ActionMasterTest extends BaseTest {
         actions.moveToElement(addonsMenu).perform();
         System.out.println(" Hovered over Add-ons menu successfully!");
         Thread.sleep(1000);
+
+        //Double click
+        basedriver.get("https://testautomationpractice.blogspot.com/");
+        WebElement doubleClickBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[text()='Copy Text']")));
+        actions.doubleClick(doubleClickBtn).perform();
+        System.out.println(" Double-click action performed!");
+        Thread.sleep(1000);
     }
 }
