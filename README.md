@@ -129,5 +129,9 @@ Understand difference between hard and soft assertions.
 
  Made changes in BaseTest.java regarding config
 
+ Day 10 - Practising driver actions
+ ----------------------------------
+ with the use of action class, we can perform multiple actions in selenium
+
 
 
