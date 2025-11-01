@@ -127,5 +127,7 @@ Understand difference between hard and soft assertions.
  
  ✅ Deliverable: Framework uses config file (no hard-coded data).
 
+ Made changes in BaseTest.java regarding config
+
 
 
