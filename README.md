@@ -133,5 +133,17 @@ Understand difference between hard and soft assertions.
  ----------------------------------
  with the use of action class, we can perform multiple actions in selenium
 
+Category	    Covered Methods
+-           
+Hover	        moveToElement()
+Drag & Drop	    dragAndDrop()
+Double Click	doubleClick()
+Right Click	    contextClick()
+Keys	        sendKeys(Keys...)
+Scroll	        JavascriptExecutor
+File Upload	    sendKeys(path)
+Alerts	        switchTo().alert()
+Sliders	        clickAndHold().moveByOffset().release()
+
 
 
