@@ -80,6 +80,20 @@ public class ActionMasterTest extends BaseTest {
         Thread.sleep(1000);
 
 
+        /*
+         *  Alerts (The Internet)
+         */
+        basedriver.get("https://the-internet.herokuapp.com/javascript_alerts");
+        basedriver.findElement(By.xpath("//button[text()='Click for JS Alert']")).click();
+        Alert alert = basedriver.switchTo().alert();
+        System.out.println(" Alert text: " + alert.getText());
+        alert.accept();
+        System.out.println(" Alert accepted!");
+        Thread.sleep(1000);
+
+
+
+
 
 
     }
