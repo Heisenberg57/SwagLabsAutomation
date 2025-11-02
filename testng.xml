@@ -5,6 +5,13 @@
             <class name="tests.CheckoutTest"/>
         </classes>
     </test>
+
+    <!-- Run only Actions group -->
+    <test name="ActionsTest">
+        <classes>
+            <class name="tests.ActionMasterTest"/> <!-- ✅ must match full package name -->
+        </classes>
+    </test>
 </suite>
 
 
