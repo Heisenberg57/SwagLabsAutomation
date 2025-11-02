@@ -91,6 +91,18 @@ public class ActionMasterTest extends BaseTest {
         System.out.println(" Alert accepted!");
         Thread.sleep(1000);
 
+        /*
+         * Slider (LetCode)
+         */
+
+        basedriver.get("https://letcode.in/slider");
+        WebElement slider = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@type='range']")));
+        actions.clickAndHold(slider).moveByOffset(80, 0).release().perform();
+        System.out.println("Slider moved successfully!");
+        Thread.sleep(1000);
+
+
+
 
 
 
