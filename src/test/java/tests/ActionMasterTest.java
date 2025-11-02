@@ -34,5 +34,17 @@ public class ActionMasterTest extends BaseTest {
         actions.doubleClick(doubleClickBtn).perform();
         System.out.println(" Double-click action performed!");
         Thread.sleep(1000);
+
+        //Drag and Drop
+        basedriver.get("https://jqueryui.com/droppable/");
+        basedriver.switchTo().frame(0);
+        WebElement source = basedriver.findElement(By.id("draggable"));
+        WebElement target = basedriver.findElement(By.id("droppable"));
+        actions.dragAndDrop(source,target).perform();
+        System.out.println("Drag and Drop completed!");
+        basedriver.switchTo().defaultContent();
+        Thread.sleep(1000);
+
+
     }
 }
