@@ -1,10 +1,7 @@
 package tests;
 
 import base.BaseTest;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptException;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -44,6 +41,29 @@ public class ActionMasterTest extends BaseTest {
         System.out.println("Drag and Drop completed!");
         basedriver.switchTo().defaultContent();
         Thread.sleep(1000);
+
+        //Keyboard Actions
+
+        basedriver.get("https://the-internet.herokuapp.com/key_presses");
+        WebElement body = basedriver.findElement(By.tagName("body"));
+        body.sendKeys(Keys.ARROW_RIGHT);
+        String text = basedriver.findElement(By.id("result")).getText();
+        System.out.println(" Key press result: " + text);
+        Thread.sleep(1000);
+
+        //Scrolling using JavaScriptExecutor
+
+        basedriver.get("https://www.selenium.dev/");
+        js.executeScript("window.scrollBy(0, 800)");
+        System.out.println("✅ Scrolled down 800px!");
+        Thread.sleep(1000);
+        WebElement footer = basedriver.findElement(By.xpath("//footer"));
+        js.executeScript("arguments[0].scrollIntoView(true);", footer);
+        System.out.println("✅ Scrolled to footer!");
+        Thread.sleep(1000);
+
+        basedriver.get("https://the-internet.herokuapp.com/upload");
+        WebElement uploadBtn = basedriver.findElement(By.id("file-upload"));
 
 
     }
