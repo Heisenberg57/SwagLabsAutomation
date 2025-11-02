@@ -7,12 +7,14 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
 
 public class ActionMasterTest extends BaseTest {
 
     @Test
-    public void practiseAllActions() throws InterruptedException{
+    public void practiseAllActions() throws InterruptedException, IOException {
 
         Actions actions = new Actions(basedriver);
         WebDriverWait wait = new WebDriverWait(basedriver, Duration.ofSeconds(10));
@@ -55,15 +57,29 @@ public class ActionMasterTest extends BaseTest {
 
         basedriver.get("https://www.selenium.dev/");
         js.executeScript("window.scrollBy(0, 800)");
-        System.out.println("✅ Scrolled down 800px!");
+        System.out.println(" Scrolled down 800px!");
         Thread.sleep(1000);
         WebElement footer = basedriver.findElement(By.xpath("//footer"));
         js.executeScript("arguments[0].scrollIntoView(true);", footer);
-        System.out.println("✅ Scrolled to footer!");
+        System.out.println(" Scrolled to footer!");
         Thread.sleep(1000);
 
+        //File Upload
         basedriver.get("https://the-internet.herokuapp.com/upload");
         WebElement uploadBtn = basedriver.findElement(By.id("file-upload"));
+
+        // create dummy file if not exists
+        File file = new File("sample.txt");
+        if (!file.exists()) {
+            file.createNewFile();
+        }
+
+        uploadBtn.sendKeys(file.getAbsolutePath());
+        basedriver.findElement(By.id("file-submit")).click();
+        System.out.println("File uploaded successfully!");
+        Thread.sleep(1000);
+
+
 
 
     }
