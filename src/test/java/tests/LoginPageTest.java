@@ -8,6 +8,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 import utils.ConfigReader;
+import utils.ScreenshotUtil;
 
 public class LoginPageTest extends BaseTest {
 
@@ -27,6 +28,7 @@ public class LoginPageTest extends BaseTest {
         basedriver.findElement(By.id("user-name")).sendKeys(username);
         basedriver.findElement(By.id("password")).sendKeys(password);
         basedriver.findElement(By.id("login-button")).click();
+        ScreenshotUtil.captureScreenshot(basedriver, "testLogin_Failed");
 
         Assert.assertTrue(basedriver.getCurrentUrl().contains("inventory"), "Login failed");
         System.out.println("✅ Login Successful");
