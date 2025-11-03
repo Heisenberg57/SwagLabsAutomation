@@ -135,23 +135,23 @@ Understand difference between hard and soft assertions.
 
 Category	    Covered Methods
 -           
-Hover	        moveToElement()
+Hover	-        moveToElement()
 
-Drag & Drop	    dragAndDrop()
+Drag & Drop	  -  dragAndDrop()
 
-Double Click	doubleClick()
+Double Click -	doubleClick()
 
-Right Click	    contextClick()
+Right Click	-    contextClick()
 
-Keys	        sendKeys(Keys...)
+Keys	     -   sendKeys(Keys...)
 
-Scroll	        JavascriptExecutor
+Scroll	     -   JavascriptExecutor
 
-File Upload	    sendKeys(path)
+File Upload	 -   sendKeys(path)
 
-Alerts	        switchTo().alert()
+Alerts	    -    switchTo().alert()
 
-Sliders	        clickAndHold().moveByOffset().release()
+Sliders	      -  clickAndHold().moveByOffset().release()
 
 
 
