@@ -171,5 +171,13 @@ SwagLabsAutomation/
 └── src/test/resources/testdata/
 └── LoginData.xlsx # Test data file
 
+Test Data (Excel File)
+
+src/test/resources/testdata/LoginData.xlsx
+
+Username	Password
+standard_user	secret_sauce
+locked_out_user	secret_sauce
+
 
 
