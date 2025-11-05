@@ -154,4 +154,10 @@ Alerts	    -    switchTo().alert()
 Sliders	      -  clickAndHold().moveByOffset().release()
 
 
+Day 11   Data-Driven Login Test using Apache POI (Java + Selenium + TestNG)
+--------------------------------------------------------
+
+A lightweight example demonstrating how to perform **data-driven testing** in Selenium using **Apache POI** for reading login credentials from an Excel file.
+
+
 
