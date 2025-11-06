@@ -154,4 +154,30 @@ Alerts	    -    switchTo().alert()
 Sliders	      -  clickAndHold().moveByOffset().release()
 
 
+Day 11   Data-Driven Login Test using Apache POI (Java + Selenium + TestNG)
+--------------------------------------------------------
+
+A lightweight example demonstrating how to perform **data-driven testing** in Selenium using **Apache POI** for reading login credentials from an Excel file.
+
+SwagLabsAutomation/
+│
+├── src/
+│ ├── main/java/utils/
+│ │ └── ExcelUtil.java # Utility to read Excel data
+│ │
+│ └── test/java/tests/
+│ └── LoginExcelTest.java # Login test reading credentials from Excel
+│
+└── src/test/resources/testdata/
+└── LoginData.xlsx # Test data file
+
+Test Data (Excel File)
+
+src/test/resources/testdata/LoginData.xlsx
+
+Username	Password
+standard_user	secret_sauce
+locked_out_user	secret_sauce
+
+
 
