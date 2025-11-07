@@ -61,10 +61,10 @@ pipeline {
             cleanWs()
         }
         success {
-			echo "✅ All tests passed successfully!"
+			echo " All tests passed successfully!"
         }
         failure {
-			echo "❌ Some tests failed. Check the TestNG report & screenshots."
+			echo " Some tests failed. Check the TestNG report & screenshots."
         }
     }
 }
