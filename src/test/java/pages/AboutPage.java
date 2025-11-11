@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import utils.WaitHelper;
 
+import java.util.ArrayList;
+
 public class AboutPage {
     private WebDriver driver;
 
@@ -25,6 +27,20 @@ public class AboutPage {
         WaitHelper.waitForClickable(driver,about,10);
         about.click();
         System.out.println("Clicked About Link");
+    }
+
+    public String switchToAboutPageAndGetTitle(){
+        ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(1));
+        System.out.println(" Switched to About page tab");
+        return driver.getTitle();
+    }
+
+    public void closeAboutTabAndReturn() {
+        ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
+        driver.close(); // Close current tab
+        driver.switchTo().window(tabs.get(0)); // Return to main tab
+        System.out.println(" Closed About tab and returned to app");
     }
 
 
