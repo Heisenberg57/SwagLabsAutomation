@@ -15,6 +15,10 @@ public class AboutPage {
     private By aboutLink = By.id("about_sidebar_link");
 
     //Constructor
+
+    public AboutPage(WebDriver driver){
+        this.driver=driver;
+    }
     public void openMenu(){
         WebElement menu =  driver.findElement(menuButton);
         WaitHelper.waitForClickable(driver,menu,10);
