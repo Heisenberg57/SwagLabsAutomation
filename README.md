@@ -185,4 +185,6 @@ Locators : menuButton , aboutLink
 Actions : openMenu(), clickAbout(),  switchToAboutPageAndGetTitle(), closeAboutTabAndReturn()
 
 
+Added AboutPageTest , Actual Test Method , with verifyAboutPageNavigation()
+
 
