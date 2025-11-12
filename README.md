@@ -179,7 +179,9 @@ Username	Password
 standard_user	secret_sauce
 locked_out_user	secret_sauce
 
-Added Page Object Model For About Page :  AboutPage - Which contains locators and methods for about page
+Added Page Object Model For About Page :  AboutPage - Which contains locators and methods for about page.
+
+Locators : menuButton , aboutLink
 
 
 
