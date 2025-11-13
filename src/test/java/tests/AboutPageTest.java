@@ -23,7 +23,7 @@ public class AboutPageTest extends BaseTest {
         Assert.assertTrue(aboutTitle.contains("Sauce Labs"), "About Page opened successfully!");
 
         // Step 4: Close About tab and return
-        aboutPage.closeAboutTabAndReturn();
+        aboutPage.goBackToApp();
 
 
     }
