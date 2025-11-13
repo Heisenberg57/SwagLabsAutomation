@@ -34,17 +34,24 @@ public class AboutPage {
     }
 
     public String switchToAboutPageAndGetTitle(){
-        ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
-        driver.switchTo().window(tabs.get(1));
-        System.out.println(" Switched to About page tab");
+        // Wait for title to load.
+        for(int i=0;i<10;i++){
+            if(driver.getTitle().toLowerCase().contains("sauce labs")){
+                break;
+            }
+            try{
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        System.out.println(" Navigated to About page");
         return driver.getTitle();
     }
 
-    public void closeAboutTabAndReturn() {
-        ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
-        driver.close(); // Close current tab
-        driver.switchTo().window(tabs.get(0)); // Return to main tab
-        System.out.println(" Closed About tab and returned to app");
+    public void goBackToApp() {
+        driver.navigate().back();
+        System.out.println(" Returned back to SauceDemo app");
     }
 
 
